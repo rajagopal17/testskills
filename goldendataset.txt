@@ -1,0 +1,82 @@
+GOLDEN_DATASET: List[GoldenItem] = [
+
+    # PROCEDURAL
+  
+    GoldenItem(
+    "How do you change time-dependent data for an asset in SAP?",
+    "Go to Asset → Change → Asset, choose the Time-dependent data tab, then choose Further Intervals to select or define a new time interval, and save.",
+    ["time-dependent", "further intervals", "tab", "interval"],
+    "procedural",
+),
+GoldenItem(
+    "What are the two methods for changing a balance-sheet-relevant organizational unit on an asset?",
+    "Method 1: Change directly in the master data transaction (only if business area and cost center are not time-dependent — the system auto-creates a transfer document). Method 2: Post an asset transfer to a new master record (required when those fields are time-dependent).",
+    ["master data transaction", "transfer", "time-dependent", "business area", "cost center"],
+    "comparative",
+),
+GoldenItem(
+    "How do you change the asset class of an asset in SAP?",
+    "Changing the asset class is only possible by posting a transfer to a new asset master record. Copy the original record as a reference, assign the new asset class, then carry out a complete transfer using transaction type 300/320 for prior-year and current-year acquisitions separately.",
+    ["asset class", "transfer", "master record", "transaction type 300"],
+    "procedural",
+),
+GoldenItem(
+    "What is the purpose of the blocking indicator in the SAP asset master record?",
+    "The blocking indicator prevents future acquisition postings to the asset. It is typically used when an asset under construction project is complete. Transfer and retirement postings to blocked assets are still allowed.",
+    ["blocking indicator", "acquisitions", "asset under construction", "blocked"],
+    "factual",
+
+    ),
+
+    # ANALYTICAL
+    GoldenItem(
+        "Why is the HNSW index used for vector search in this RAG system?",
+        "UNANSWERABLE — not in the SAP knowledge base",
+        [],
+        "adversarial",
+    ),
+    GoldenItem(
+        "What is the weather in Dubai today?",
+        "UNANSWERABLE — not in the SAP knowledge base",
+        [],
+        "adversarial",
+    ),
+    GoldenItem(
+        "Tell me about competitor treasury software pricing",
+        "UNANSWERABLE — not in the SAP knowledge base",
+        [],
+        "adversarial",
+    ),
+
+    # FX RISK MANAGEMENT
+    GoldenItem(
+        "What are the four FX product types handled in SAP TRM?",
+        "SAP TRM handles FX Spot (immediate currency exchange), FX Forward (future exchange at a fixed rate), FX Swap (exchange and reverse after a period), and FX Options (right but not obligation to buy/sell at a future rate).",
+        ["FX spot", "FX forward", "FX swap", "FX option"],
+        "factual",
+    ),
+    GoldenItem(
+        "How is the forward rate calculated for an FX forward transaction in SAP?",
+        "The forward rate is made up of the spot rate plus the swap rate. The spot rate is the current exchange rate when the trade was executed; the swap rate is a markup or markdown based on the interest rate difference between the two currencies.",
+        ["forward rate", "spot rate", "swap rate", "interest rate difference"],
+        "factual",
+    ),
+    GoldenItem(
+        "What transaction code is used to create an FX Spot or Forward in SAP?",
+        "Transaction code TX01 is used to create an FX Spot or Forward contract in SAP Transaction Manager.",
+        ["TX01", "FX spot", "FX forward", "transaction manager"],
+        "factual",
+    ),
+    GoldenItem(
+        "What are the two settlement types available for FX transactions in SAP, and how do they differ?",
+        "Physical Delivery posts both the buy and sell amounts into FI at the maturity of the trade. Cash Settlement posts only a net settlement amount into FI at maturity.",
+        ["physical delivery", "cash settlement", "maturity", "settlement"],
+        "comparative",
+    ),
+    GoldenItem(
+        "What organizational roles are involved in FX trade processing in SAP Transaction Manager?",
+        "Trade processing follows a Treasury organizational structure: the Front-Office executes trades, the Back-Office handles confirmations and payments, and Accounting manages postings to the SAP General Ledger including accruals and valuations.",
+        ["front-office", "back-office", "accounting", "general ledger", "confirmation"],
+        "factual",
+    ),
+]
